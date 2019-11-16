@@ -14,20 +14,37 @@ class Home extends CI_Controller
 
     public function index()
     {
-        $data['user'] = $this->db->get_where('msuser', ['email' =>
-        $this->session->userdata('email')])->row_array();
+         $data['user'] = $this->lapan_api_library->call3('users/getuserbyemail', ['token' => TOKEN, 'email' => $this->session->userdata('email')]);
 
-        $data['berita'] = $this->m_home->getListBerita();
-        $data['agenda'] = $this->m_home->getListAgenda();
-        $data['ksispan'] = $this->m_home->getKegiatanSispan();
+        $getKegiatanSispan = $this->lapan_api_library->call('kegiatan/getkegiatansispan', ['token' => TOKEN]);
+        $data['ksispan'] = $getKegiatanSispan['rows'][0];
 
-        $data['menu'] = $this->m_menu->getMenu();
-        $data['submenu'] = $this->m_menu->getSubMenu();
+        $hasil_listberita = $this->lapan_api_library->call('berita/getlistberita', ['token' => TOKEN]);
+        $data['berita'] = $hasil_listberita['rows'];
 
-        $data['link'] = $this->m_footer->getLink();
-        $data['akses'] = $this->m_footer->getAkses();
+        $hasil_listagenda = $this->lapan_api_library->call('agenda/getlistagendalimit3', ['token' => TOKEN]);
+        $data['agenda'] = $hasil_listagenda['rows'];
+
+        //=============================================================================================================================//
 
         $data['uri'] = $this->uri->segment(1);
+
+        $getlistlink = $this->lapan_api_library->call('link/getlink', ['token' => TOKEN]);
+        $data['link'] = $getlistlink['rows'];
+
+        $getaksescepat = $this->lapan_api_library->call('aksescepat/getaksescepat', ['token' => TOKEN]);
+        $data['akses'] = $getaksescepat['rows'];
+
+        $data_menuwhere = [
+            'token' => TOKEN,
+            'id_parent' => '',
+            'id_posisi' => 4
+        ];
+        $getmenuwhere = $this->lapan_api_library->call('menu/getmenuwhere', $data_menuwhere);
+        $data['menu'] = $getmenuwhere['rows'];
+
+        $getmenu = $this->lapan_api_library->call('menu/getmenu', ['token' => TOKEN]);
+        $data['submenu'] = $getmenu['rows'];
 
         $this->load->view('template/header', $data);
         $this->load->view('home', $data);
