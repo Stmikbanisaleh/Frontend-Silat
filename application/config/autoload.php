@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('Lapan_api_library','database', 'email', 'session', 'form_validation');
+$autoload['libraries'] = array('Lapan_api_library', 'email', 'session', 'form_validation');
 
 /*
 | -------------------------------------------------------------------

@@ -36,7 +36,7 @@
             <div id="myCarousel" class="carousel slide carousel-v1" ">
                 <div class=" carousel-inner">
                 <div class="item active">
-                    <img src="../assets/img_kegiatan/<?= $ksispan['gambar']; ?>" alt="">
+                    <img src="<?= URL_API_DOWNLOAD . $ksispan['gambar']; ?>" alt="">
                     <div class="carousel-caption">
                         <p><?= $ksispan['nama_kegiatan']; ?></p>
                         <p><?= $ksispan['tempat']; ?> , <?= date('d-m-Y', strtotime($ksispan['tanggal'])); ?></p>

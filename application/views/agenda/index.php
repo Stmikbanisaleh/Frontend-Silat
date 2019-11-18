@@ -17,7 +17,7 @@
                                     <h2><?= $ag['nama_agenda']; ?></h2>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <img class="img-responsive" src="<?= base_url() ?>assets/img_agenda/<?= $ag['foto']; ?>" alt="">
+                                            <img class="img-responsive" src="<?= URL_API_DOWNLOAD . $ag['foto']; ?>" alt="">
                                             <div class="md-margin-bottom-20"></div>
                                         </div>
                                         <div class="col-md-8">

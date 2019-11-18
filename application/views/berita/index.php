@@ -9,9 +9,9 @@
                     <div class="col-md-2">
                         <a href="<?= base_url() ?>berita/read/<?= $gb['judul_seo'] ?>">
                             <?php if ($start) { ?>
-                                <img height="140px" width="140px" class="img-thumbnail" src="../../../assets/img_berita/<?= $gb['gambar']; ?>">
+                                <img height="140px" width="140px" class="img-thumbnail" src="<?= URL_API_DOWNLOAD . $gb['gambar']; ?>">
                             <?php } else { ?>
-                                <img height="140px" width="140px" class="img-thumbnail" src="../../assets/img_berita/<?= $gb['gambar']; ?>">
+                                <img height="140px" width="140px" class="img-thumbnail" src="<?= URL_API_DOWNLOAD . $gb['gambar']; ?>">
                             <?php } ?>
                         </a>
                     </div>

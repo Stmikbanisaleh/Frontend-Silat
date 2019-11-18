@@ -7,7 +7,7 @@
             <?php foreach ($getBerita as $gb) { ?>
             <div class="row margin-top-20">
                 <div class="col-md-2">
-                    <img height="140px" width="140px" class="img-thumbnail" src="assets/img_berita/<?= $gb['gambar']; ?>">
+                    <img height="140px" width="140px" class="img-thumbnail" src="<?= URL_API_DOWNLOAD . $gb['gambar']; ?>">
                 </div>
                 <div class="col-md-10 blog-thumb-v3">
                     <small><?= date('d-m-Y', strtotime($gb['tanggal'])); ?></small>

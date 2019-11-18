@@ -97,7 +97,7 @@ class Berita extends CI_Controller
 
         $get_beritadetail = $this->lapan_api_library->call('berita/getberitadetail', ['token' => TOKEN, 'judul_seo' => $seo]);
         $data['getBeritaDetail'] = $get_beritadetail['rows'];
-        $data['getBeritaDetail'] = $this->m_berita->getBeritaDetail($seo);
+        // $data['getBeritaDetail'] = $this->m_berita->getBeritaDetail($seo);
 
         //=============================================================================================================================//
 

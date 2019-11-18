@@ -17,7 +17,7 @@
                         <li><?= date('d-m-Y', strtotime($gbd['tanggal'])); ?></li>
                     </ul>
                 </div>
-                <img class="img-responsive" src="../../../assets/img_berita/<?= $gbd['gambar']; ?>" alt="">
+                <img class="img-responsive" src="<?= URL_API_DOWNLOAD . $gbd['gambar']; ?>" alt="">
                 <?= $gbd['isi_berita']; ?>
             </div>
             <!-- End Blog Grid Tagds -->
